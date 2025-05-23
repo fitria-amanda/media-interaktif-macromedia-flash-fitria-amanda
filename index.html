@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Index</title>
+  <!-- <script src="ruffle/ruffle.js"></script> -->
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #ffffff;
+    }
+    #flash-container {
+      width: 100%;
+      height: 100%;
+    }
+    ruffle-player {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div id="flash-container">
+    <object data="index.swf" type="application/x-shockwave-flash" width="800" height="600">
+      <param name="movie" value="index.swf" />
+    </object>
+  </div>
+
+  <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+
+  <script>
+    window.RufflePlayer = window.RufflePlayer || {};
+    window.addEventListener("DOMContentLoaded", () => {
+      const ruffle = window.RufflePlayer.newest();
+      const container = document.getElementById("flash-container");
+      const player = ruffle.createPlayer();
+      container.innerHTML = '';
+      container.appendChild(player);
+      player.load("index.swf");
+    });
+  </script>
+
+</body>
+</html>
